@@ -51,7 +51,7 @@
         $anonymous          = testInput($_POST['anonymous']);
         
 
-        uploadPicture('file1','sharedImages/'.$file1);
+        // uploadPicture('file1','sharedImages/'.$file1);
         if(scamExist($conn,$scam_exp) == Null){
             if($firstname != "" || $lastname != ""){
                 $register = share($conn,$firstname,$lastname,$email,$phone,$first_scam,$scammer_report,$scammer_username,$scammer_contact,
