@@ -182,31 +182,31 @@
 
 </div>
     </div>
-    <div id="main_C056_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="scam-details/online-purchase-scam.html" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-001196b.png?sfvrsn=538f7a79_4" alt="icn-scam-001" class="img-fluid" data-displaymode="Original" title="icn-scam-001"></a>
+    <div id="main_C056_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="n-Scam/online-purchase-scam.php" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-001196b.png?sfvrsn=538f7a79_4" alt="icn-scam-001" class="img-fluid" data-displaymode="Original" title="icn-scam-001"></a>
 
 
 </div>
     </div>
 </div>
 <div class="row" data-sf-element="Row">
-    <div id="main_C059_Col00" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='sfContentBlock'><a href="scam-details/loan-scam.html" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-002c2d0.png?sfvrsn=fa7da271_4" alt="icn-scam-002" class="img-fluid" data-displaymode="Original" title="icn-scam-002"></a>
+    <div id="main_C059_Col00" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='sfContentBlock'><a href="n-Scam/loan-scam.php" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-002c2d0.png?sfvrsn=fa7da271_4" alt="icn-scam-002" class="img-fluid" data-displaymode="Original" title="icn-scam-002"></a>
 
 
 </div>
     </div>
-    <div id="main_C059_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="scam-details/internet-love-scam.html" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-003eb21.png?sfvrsn=b40f261d_4" alt="icn-scam-003" class="img-fluid" data-displaymode="Original" title="icn-scam-003"></a>
+    <div id="main_C059_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="n-Scam/internet-love-scam.php" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-003eb21.png?sfvrsn=b40f261d_4" alt="icn-scam-003" class="img-fluid" data-displaymode="Original" title="icn-scam-003"></a>
 
 
 </div>
     </div>
 </div>
 <div class="row" data-sf-element="Row">
-    <div id="main_C062_Col00" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='sfContentBlock'><a href="scam-details/credit-for-sex-scam.html" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-004b24b.png?sfvrsn=d1516ee3_4" alt="icn-scam-004" class="img-fluid" data-displaymode="Original" title="icn-scam-004"></a>
+    <div id="main_C062_Col00" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='sfContentBlock'><a href="n-Scam/credit-for-sex-scam.php" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-004b24b.png?sfvrsn=d1516ee3_4" alt="icn-scam-004" class="img-fluid" data-displaymode="Original" title="icn-scam-004"></a>
 
 
 </div>
     </div>
-    <div id="main_C062_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="scam-details/impersonation-scam.html" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-0051901.png?sfvrsn=1208b785_4" alt="icn-scam-005" class="img-fluid" data-displaymode="Original" title="icn-scam-005"></a>
+    <div id="main_C062_Col01" class="sf_colsIn col-sm-6 mb-5" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='sfContentBlock'><a href="n-Scam/impersonation-scam.php" class="d-block" target="_blank"><img src="default-album/top-5/jan-may-2020/icn-scam-0051901.png?sfvrsn=1208b785_4" alt="icn-scam-005" class="img-fluid" data-displaymode="Original" title="icn-scam-005"></a>
 
 
 </div>
@@ -259,22 +259,22 @@
 <div class="latest-highlights-content">
     <h4>Scam Stories</h4>
     <ul class="list-group">
-
+        <?php 
+            $latestNo = sizeof(fetchLatestStory($conn));
+            $latest   = fetchLatestStory($conn);
+            for($i=0; $i<$latestNo;$i++)
+            {
+            
+        ?>
             <li class="list-group-item">
-                <div class="small text-primary">Phishing Scam, Impersonation Scam</div>
-                <h6><a href="stories-details/Story-26May2021161220PM.html">Scammer used quarantine to threaten me</a></h6>
+                <div class="small text-primary"><?php echo($latest[$i]['scammer_report']) ?></div>
+                <h6><a href="n-Scam/<?php echo($latest[$i]['scammer_report']) ?>.php"><?php echo substr($latest[$i]['scam_exp'],0,70)."..." ?></a></h6>
             </li>
-            <li class="list-group-item">
-                <div class="small text-primary">Phishing Scam, Impersonation Scam</div>
-                <h6><a href="stories-details/Story-26May2021132323PM.html">Call from "DBS" turned out to be a fake</a></h6>
-            </li>
-            <li class="list-group-item">
-                <div class="small text-primary">Phishing Scam, Impersonation Scam</div>
-                <h6><a href="stories-details/Story-24May2021164644PM.html">Look out for the + prefix. If it's there, it's most likely a scam</a></h6>
-            </li>
-
+        <?php
+            }
+        ?>
     </ul>
-    <a href="stories.html">See All Stories</a>
+    <a href="stories.php">See All Stories</a>
 </div>
 
     </div>
@@ -286,19 +286,14 @@
 
             <li class="list-group-item">
                 <div class="small text-primary">26 May 2021</div>
-                <h6><a href="http://zaobao.com.sg/news/singapore/story20210526-1149550">留学生坠假公安骗局 父母遭勒索124万 </a></h6>
-            </li>
-            <li class="list-group-item">
-                <div class="small text-primary">26 May 2021</div>
                 <h6><a href="https://www.straitstimes.com/singapore/courts-crime/student-posed-blindfolded-gagged-in-ruse-for-scam">Foreign student in S'pore posed blindfolded, gagged in ruse for China official scam</a></h6>
             </li>
             <li class="list-group-item">
                 <div class="small text-primary">26 May 2021</div>
                 <h6><a href="https://www.channelnewsasia.com/news/singapore/loan-scam-police-advisory-government-bank-fake-letters-14887704">Police warn of loan scam involving fake letters or emails from banks and government agencies</a></h6>
             </li>
-
     </ul>
-    <a href="resources/news.html">See All News</a>
+    <a href="rez/news.php">See All News</a>
 </div>
     </div>
     <div id="main_C031_Col02" class="sf_colsIn col-md-4" data-sf-element="Column 3" data-placeholder-label="Column 3">
@@ -311,8 +306,7 @@
 <div id="main_C048_Col00" class="sf_colsIn container-fluid" data-sf-element="Container" data-placeholder-label="Container"><div id="main_C051_Col00" class="sf_colsIn container facebook-container" data-sf-element="Container" data-placeholder-label="Container"><div class="row" data-sf-element="Row">
     <div id="main_C068_Col00" class="sf_colsIn col-md-6" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='sfContentBlock'><h2>ScamShield – The Scam Messages and Calls Filtering App</h2>
 <p>Scammers often initiate contact with potential scam victims through Short Message Services (SMSes) or phone calls. Fight scam messages and calls by getting ScamShield.</p>
-<p>ScamShield actively works in the background to filter scam messages and calls from numbers used in illegal activities. Find out more about the app at <a href="https://www.scamshield.org.sg/"></a><a href="https://www.scamshield.sg/" target="_blank">www.scamshield.org.sg</a>.</p>
-<p>Download ScamShield app now.</p>
+
 
 
 </div><div class="row" data-sf-element="Row">
@@ -328,7 +322,7 @@
 </div>
     </div>
 </div>
-<div class='mt-5'><a class="img-fluid" href="https://apps.apple.com/sg/app/scamshield/id1497144087" target="_blank"><img src="default-album/scamshield-downloade9d6.png?sfvrsn=cfd77a36_2" data-displaymode="Original" alt="scamshield-download" title="scamshield-download"></a>
+<div class='mt-5'><a class="img-fluid" href="#" target="_blank"><img src="default-album/scamshield-downloade9d6.png?sfvrsn=cfd77a36_2" data-displaymode="Original" alt="scamshield-download" title="scamshield-download"></a>
 
 
 </div>
@@ -340,7 +334,7 @@ Facebook Feed
 
 </div>
     </div>
-    <div id="main_C069_Col01" class="sf_colsIn col-md-4" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='text-right mb-5'><a href="https://www.facebook.com/ncpc.sg" target="_blank" class="btn btn-outline-primary">See More</a>
+    <div id="main_C069_Col01" class="sf_colsIn col-md-4" data-sf-element="Column 2" data-placeholder-label="Column 2"><div class='text-right mb-5'><a href="#" target="_blank" class="btn btn-outline-primary">See More</a>
 
 
 </div>
@@ -369,7 +363,7 @@ Facebook Feed
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
   
-<div class="center"><div class="fb-page" data-href="https://www.facebook.com/ncpc.sg" data-tabs="timeline" data-width="750" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ncpc.sg" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/ncpc.sg">National Crime Prevention Council (Singapore)</a></blockquote></div>
+<div class="center"><div class="fb-page" data-href="https://www.facebook.com/ncpc.sg" data-tabs="timeline" data-width="750" data-height="400" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/ncpc.sg" class="fb-xfbml-parse-ignore"><a href="#">National Crime Prevention Council (Singapore)</a></blockquote></div>
 
     </div>
 </div>
@@ -380,7 +374,7 @@ Facebook Feed
 <div id="main_C075_Col00" class="sf_colsIn container-fluid our-resources-container" data-sf-element="Container" data-placeholder-label="Container"><div id="main_C017_Col00" class="sf_colsIn container" data-sf-element="Container" data-placeholder-label="Container"><div class='text-center pb-5'><h2>Our Resources</h2>
 <span class="lead">
 Improve your awareness of the many types of scams and learn how you can prevent getting caught in one<br>
-The full list of SPF Police news releases, including scams, can be found at <a href="https://www.police.gov.sg/Media-Room/News"></a><a href="https://www.police.gov.sg/Media-Room/News">here</a>.<br>
+The full list of SPF Police news releases, including scams, can be found at <a href="#"></a><a href="#">here</a>.<br>
 </span>
 
 
@@ -392,7 +386,7 @@ The full list of SPF Police news releases, including scams, can be found at <a h
 <img alt="" class="card-img-top" src="default-album/blogs/thumbnails/credit-card72c2.png?Status=Temp&amp;sfvrsn=90835eb0_2"href="#"></a>
 <div class="card-body">
 <h4 class="card-title">
-  <a class="text-dark" href="resources/blog-details/unauthorised-transactions-using-stolen-credit-debit-cards-and-credit-debit-card-information.html">Unauthorised Transactions</a>
+  <a class="text-dark" href="#">Unauthorised Transactions</a>
 </h4>
 <div class="small text-muted">
 <a class="text-primary" href="resources/blog.html">Blog</a> | 06 Apr 2020</div>
@@ -403,9 +397,9 @@ The full list of SPF Police news releases, including scams, can be found at <a h
 <div class="card">
 <img alt="" class="card-img-top" src="default-album/home-page_video-resource/how-do-you-meet-the-right-onec182.png?Status=Temp&amp;sfvrsn=3fd668cf_2" />
 <div class="card-body">
-<h4 class="card-title"><a class="text-dark" data-toggle="modal" data-target="#video-VztwMVHUSaE" href="https://youtu.be/yWAL2o3Ypss">NCPC Anti-Scam Commercial 2020 - Is This True Love?</a>
+<h4 class="card-title"><a class="text-dark" data-toggle="modal" data-target="#video-VztwMVHUSaE" href="#">NCPC Anti-Scam Commercial 2020 - Is This True Love?</a>
 </h4>
-<div class="small text-muted"><a class="text-primary" href="resources/videos.html">Videos</a> | 20 Nov 2020</div>
+<div class="small text-muted"><a class="text-primary" href="#">Videos</a> | 20 Nov 2020</div>
 </div>
 </div>
 </div>
@@ -416,7 +410,7 @@ The full list of SPF Police news releases, including scams, can be found at <a h
 <h4 class="card-title">
 <a class="text-dark" data-toggle="modal" data-target="#poster-2" href="#">Your shopping playground. Their perfect prey ground</a>
 </h4>
-<div class="small text-muted"><a class="text-primary" href="resources/posters.html">Posters</a>&nbsp;| 24 Dec 2018</div>
+<div class="small text-muted"><a class="text-primary" href="rez/posters.php">Posters</a>&nbsp;| 24 Dec 2018</div>
 </div>
 </div>
 </div>
@@ -456,13 +450,13 @@ The full list of SPF Police news releases, including scams, can be found at <a h
 </div>
 </div>
 <div class="text-center mt-3">
-<a href="resources/blog/index.html" title="Click to view more Resources" class="btn btn-primary" sfref="[f669d9a7-009d-4d83-ddaa-000000000002]9b83f1aa-9297-4642-b298-943d0f043e8a">View More</a></div></div>
+<a href="#" title="Click to view more Resources" class="btn btn-primary" sfref="[f669d9a7-009d-4d83-ddaa-000000000002]9b83f1aa-9297-4642-b298-943d0f043e8a">View More</a></div></div>
 </div>
 
 </div>
 <div id="main_C028_Col00" class="sf_colsIn container-fluid bg-dark scam-encounter py-5" data-sf-element="Container" data-placeholder-label="Container"><div class='container text-center text-light py-5'><h1>Have you encountered a scam?</h1>
 <span class="lead">Share your stories. Help create awareness.</span><br>
-<a href="share-a-story.html" class="btn btn-primary mt-4">Share Your Story</a>
+<a href="share-a-story.php" class="btn btn-primary mt-4">Share Your Story</a>
 
 
 </div>
@@ -470,7 +464,7 @@ The full list of SPF Police news releases, including scams, can be found at <a h
 <div id="main_C034_Col00" class="sf_colsIn container-fluid bg-light" data-sf-element="Container" data-placeholder-label="Container"><div class="row" data-sf-element="Row">
     <div id="main_C035_Col00" class="sf_colsIn col-md-6 pr-0 py-5 border-right border-white" data-sf-element="Column 1" data-placeholder-label="Column 1"><div class='container text-center py-5'><h1>Think you stand a chance<br>
 against scammers?</h1>
-<a class="btn btn-outline-primary mt-4" href="scam-iq-quiz.html" target="_blank">Find Out More</a>
+<a class="btn btn-outline-primary mt-4" href="#" target="_blank">Find Out More</a>
 
 
 </div>

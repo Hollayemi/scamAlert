@@ -97,6 +97,16 @@
         return $result;
     }
 
+
+    function fetchLatestStory($conn){
+        $sql = "SELECT scam_exp,scammer_report,date,storyToken FROM sharestory ORDER BY date DESC LIMIT 5";
+        $stmt = $conn->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+
+
     function fetchAllStories($conn,$id)
     {
         $sql = "SELECT scam_exp,scammer_report,date,storyToken FROM sharestory WHERE id = :id";
@@ -104,7 +114,11 @@
         $stmt->execute(['id'=>$id]);
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result;
+
     }
+
+
+  
 
 
      // after sorting
@@ -113,20 +127,28 @@
      {
         
         $sort = $_POST['sort'];
-        
         $key = $_POST['key'];
-        
-        if($sort == 'Latest'){
-            $sql = "SELECT id FROM sharestory WHERE scammer_report = :scammer_report ORDER BY date DESC";
-        }else{
-            $sql = "SELECT id FROM sharestory WHERE scammer_report = :scammer_report ORDER BY date ASC";        
-        }
+        if($key != "all"){
+            if($sort == 'Latest'){
+                $sql = "SELECT id FROM sharestory WHERE scammer_report = :scammer_report ORDER BY date DESC";
+            }else{
+                $sql = "SELECT id FROM sharestory WHERE scammer_report = :scammer_report ORDER BY date ASC";        
+            }
 
-        $stmt = $conn->prepare($sql);
-        $stmt->execute([
-            'scammer_report'    =>$key,
-            
-            ]);
+            $stmt = $conn->prepare($sql);
+            $stmt->execute([
+                'scammer_report'    =>$key,
+                ]);
+        }else{
+            if($sort == 'Latest' ){
+                $sql = "SELECT id FROM sharestory ORDER BY date DESC";
+            }else{
+                $sql = "SELECT id FROM sharestory ORDER BY date ASC";        
+            }
+
+            $stmt = $conn->prepare($sql);
+            $stmt->execute();
+        }
         $results = $stmt->fetchAll(PDO::FETCH_COLUMN);
         
         foreach($results as $result){
@@ -157,6 +179,23 @@
         $stmt->execute();
         $result = $stmt->fetchAll(PDO::FETCH_COLUMN);
         return $result;
+    }
+
+    function pickAtRandom($conn)
+    {
+        $myArray    =fetchTypeOfScam($conn);
+        $rawArr = sizeof(fetchTypeOfScam($conn));
+        $insertRawArr = array();
+
+        for($i=0;$i<$rawArr;$i++)
+        {
+            $atRand = rand(0,$rawArr-1);
+            if(!in_array($myArray[$atRand],$insertRawArr) && sizeof($insertRawArr) <= 5)
+            {
+                $insertRawArr[] = $myArray[$atRand];
+            }
+        }
+        return $insertRawArr;
     }
 
     function fetchTypeOfScam_forEach($conn,$scammer_report)
@@ -329,7 +368,36 @@ function MyMailer($subject,$to,$message){
     } else{
         echo  "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
     }
+}
 
+
+
+// searchPage 
+
+if(isset($_POST['searchText'])){
+    $searchText     =   $_POST['searchText'];
+    $sql = "SELECT * FROM sharestory WHERE scam_exp LIKE '%$searchText%' ";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+
+    $results = $stmt->fetchAll(PDO::FETCH_COLUMN);
+    foreach($results as $result){   
+        $storyIdsDetails     =   fetchAllStories($conn,$result);
+        echo '
+        <div class="col-md-6">
+                    <div class="card">
+                    <div class="card-body p-5">
+                        <div class="card-date text-primary">'.explode(" ",$storyIdsDetails['date'])[0].'</div>
+                        <h4 class="card-title">
+                            <a class="text-dark" href="stories/view_story.php?story='.$storyIdsDetails['storyToken'].'">'.$storyIdsDetails['scammer_report'].'</a>
+                        </h4>
+                        <p class="card-text">'.substr($storyIdsDetails['scam_exp'],0,400).'...</p>
+                    </div>
+                </div>
+            </div>
+        ';
+    }
 }
 
 ?>

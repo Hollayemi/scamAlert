@@ -24,13 +24,14 @@
         <link rel="stylesheet" href="css/brands.css" integrity="sha384-nT8r1Kzllf71iZl81CdFzObMsaLOhqBU1JD2+XoAALbdtWaXDOlWOZTR4v1ktjPE" crossorigin="anonymous">
         <noscript><img height="1" width="1" src="https://www.facebook.com/tr?id=182579468986845&amp;ev=PageView&amp;noscript=1"/></noscript> 
         <meta name="Generator" content="Sitefinity 10.2.6603.0 PE" />
-        <link rel="canonical" href="index.php" />
+        <link rel="canonical" href="index.php"/>
         <link href="Telerik.Web.UI.WebResource3e24.css?d=PMrIT5dOWaVYIcpFWUE4nFATsyWY_0rVqpsld4-AH4hsOoOjIqoTFbCWFfHBHruywXJrmk6FMtN54ucSMkHM35QhV9hR38oOdIejCmhu7CicBfbM5135qn6i8z2DwCHO0&amp;t=637430195419278594&amp;compress=0&amp;_TSM_CombinedScripts_=%3b%3bTelerik.Sitefinity.Resources%2c+Version%3d10.2.6603.0%2c+Culture%3dneutral%2c+PublicKeyToken%3db28c218413bdf563%3aen%3a2d5b3488-fb7a-434a-a4cc-a5adec19f7a1%3a7a90d6a" type="text/css" rel="stylesheet" />
         <link href="global/all.min1014.css?v=636703783460000000" type="text/css" rel="stylesheet" />
         <link href="global/social-mediab2b5.css?v=636722693560000000" type="text/css" rel="stylesheet" />
         <link href="global/scamalert-themeb696.css?v=637413952820886548" type="text/css" rel="stylesheet" />
         <link href="global/all.min1014.css" type="text/css" rel="stylesheet" />
         <link href="global/social-mediab2b5.css" type="text/css" rel="stylesheet" />
+        <script src="out.js"></script>
     </head> 
     <body class="eupopup eupopup-bottom">
     <form method="post" action="https://www.scamalert.sg/" id="aspnetForm">
@@ -70,7 +71,7 @@ Sys.Application._enableHistoryInScriptManager();
         </a>
         <div class="ml-auto d-block d-sm-none">
             <a href="tel:1800-722-6688" class="mr-4" title="Hotline"><img src="default-album/icons/icon-phone.png" alt="Hotline" /></a>
-            <a href="search.html" class="mr-4" title="Search"><img src="default-album/icons/icon-magnifier.png" alt="Search" /></a>
+            <a href="search.php" class="mr-4" title="Search"><img src="default-album/icons/icon-magnifier.png" alt="Search" /></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -86,7 +87,7 @@ Sys.Application._enableHistoryInScriptManager();
                                     <p class="dropdown-header pl-0"> What is a Scam?</p>
                                     <p>A scam is designed to trick you into giving away your money, personal details or data by offering an attractive deal or false information.</p>
                                     <p>
-                                        <a href="types-of-scams.html">See Types of Scams</a>
+                                        <a href="types-of-scams.php">See Types of Scams</a>
                                     </p>
                                 </li>
                                 <li class="col-sm-9 d-none d-sm-block">

@@ -1,6 +1,7 @@
 <?php 
     include('headerN-scam.php');
     $storyIds            = fetchId($conn);
+    $name                = "job-scam";
 ?>
 
 
@@ -246,9 +247,10 @@ c) Receive a donation into their personal bank accounts and assist to deposit th
     <input type="hidden" value="" style="display:none;" />
 
     
-    <div class="d-none d-sm-block">
+
+    <div class="d-sm-block">
         <div class="row pb-4">
-            <div class="col-lg-5 text-muted mb-2 pt-2" id="divPagingInfo">Showing 6 of 114 Stories</div>
+        <div class="col-lg-5 text-muted mb-2 pt-2" id="divPagingInfo">Showing <?php echo sizeof(fetchTypeOfScam_forEach($conn,$name))?> of <?php echo sizeof(fetchTypeOfScam_forEach($conn,$name))?> Stories</div>
             <div class="col-lg-7 text-muted">
                 <div class="form-row align-items-center">
                     <div class="col-auto">
@@ -264,86 +266,6 @@ c) Receive a donation into their personal bank accounts and assist to deposit th
                 </div>
             </div>
         </div>
-    </div>
-    <div class="mobile-filter d-block d-sm-none mb-3">
-        <div class="row">
-            <div class="col-6">
-                <div class="btn-group">
-                    <button type="button" class="btn btn-link dropdown dropdown-toggle" data-toggle="dropdown">
-                        Filter by
-                    </button>
-                    <ul class="dropdown-menu" role="menu">
-                        <li>
-                            <select class="selectpicker custom-select mb-2" id="ddlYear2" onchange="ddlYearOnSelect2();">
-                                <option value="">Year</option>
-                                    <option value="2016" >2016</option>
-                                    <option value="2017" >2017</option>
-                                    <option value="2018" >2018</option>
-                                    <option value="2019" >2019</option>
-                                    <option value="2020" >2020</option>
-                                    <option value="2021" >2021</option>
-                            </select>
-                        </li>
-                        <li>
-                            <select class="selectpicker custom-select mb-2" id="ddlMonth2" onchange="ddlMonthOnSelect2();">
-                                <option value="">Month</option>
-                                    <option value="1" >Jan</option>
-                                    <option value="2" >Feb</option>
-                                    <option value="3" >Mar</option>
-                                    <option value="4" >Apr</option>
-                                    <option value="5" >May</option>
-                                    <option value="6" >Jun</option>
-                                    <option value="7" >Jul</option>
-                                    <option value="8" >Aug</option>
-                                    <option value="9" >Sep</option>
-                                    <option value="10" >Oct</option>
-                                    <option value="11" >Nov</option>
-                                    <option value="12" >Dec</option>
-                            </select>
-                        </li>
-                        <li>
-                            <select class="selectpicker custom-select" id="ddlScamType2" onchange="ddlScamOnSelect2();">
-                                <option value="">All Type</option>
-                                    <option value="apple-scam" >Apple Scam</option>
-                                    <option value="car-rental-scam" >Car Rental Scam</option>
-                                    <option value="cold-call-supplier-scam" >Cold Call Supplier Scam</option>
-                                    <option value="credit-for-sex-scam" >Credit-for-Sex Scam</option>
-                                    <option value="cyber-extortion-scam" >Cyber Extortion Scam</option>
-                                    <option value="home-room-rental-scam" >Home/Room Rental Scam</option>
-                                    <option value="impersonation-scam" >Impersonation Scam</option>
-                                    <option value="inheritance-scam" >Inheritance Scam</option>
-                                    <option value="internet-love-scam" >Internet Love Scam</option>
-                                    <option value="investment-scam" >Investment Scam</option>
-                                    <option value="job-scam" selected>Job Scam</option>
-                                    <option value="kidnap-scam" >Kidnap Scam</option>
-                                    <option value="loan-scam" >Loan Scam</option>
-                                    <option value="lottery-scam" >Lottery Scam</option>
-                                    <option value="money-mule-scam" >Money Mule Scam</option>
-                                    <option value="online-purchase-scam" >Online Purchase Scam</option>
-                                    <option value="online-travel-vacation-scam" >Online Travel Vacation Scam</option>
-                                    <option value="paypal-email-scam" >PayPal Email Scam</option>
-                                    <option value="phishing-scam" >Phishing Scam</option>
-                                    <option value="scam-using-wechat" >Scam Using WeChat</option>
-                                    <option value="social-media-whatsapp-scam" >Social Media Impersonation / Whatsapp Takeover Scam</option>
-                                    <option value="software-update-scam" >Software Update Scam</option>
-                                    <option value="spoofed-hacked-email-scam" >Spoofed/Hacked Email Scam</option>
-                                    <option value="wangiri-scam" >Wangiri Scam</option>
-                            </select>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-6">
-                <select class="custom-select mb-2" id="ddlSortBy2" onchange="ddlSortByOnSelect2();">
-                            <option value="Latest" >Latest</option>
-                            <option value="Oldest" >Oldest</option>
-                            <option value="Ascending" >Ascending</option>
-                            <option value="Descending" >Descending</option>
-
-                </select>
-            </div>
-        </div>
-        <div class="results text-muted text-center mt-5 pb-2">Showing 6 of 30 Stories</div>
     </div>
 
     
@@ -406,49 +328,6 @@ c) Receive a donation into their personal bank accounts and assist to deposit th
         </ul>
     </nav>
 </div>
-
-<script type="text/javascript">
-    
-    function ddlSortByOnSelect() {
-        FilterAjax();
-    }
-    function ddlSortByOnSelect2() {
-        FilterAjax("");
-    }
-
-    function FilterAjax() {
-        // show loading div
-        $("#divLoading").show();
-        $("#divStoryList").empty();
-        
-        var sortValue  =  $('#ddlSortBy').val()
-        var search     =   "job-scam"
-        $.ajax({
-            url: "../config/actions.php",
-            method:"POST",
-            data: {
-                sort:sortValue,
-                key:search
-            },
-            success: function(data){
-                $('#showdivStoryList').html(data)
-                $("#divLoading").hide();
-            }
-        })
-        
-    }
-       
-</script>
-
-</div>
-<div id="main_C025_Col00" class="sf_colsIn bg-dark  scam-encounter py-5" data-sf-element="Container" data-placeholder-label="Container"><div class='container text-center text-light py-5'><h1>Have you encountered a scam?</h1>
-<span class="lead">Share your stories. Help create awareness.</span><br>
-<a href="../share-a-story.html" class="btn btn-primary mt-4">Share Your Story</a>
-
-
-</div>
-</div>
- </main> 
 
 
 

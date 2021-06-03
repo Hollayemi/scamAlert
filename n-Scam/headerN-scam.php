@@ -62,13 +62,13 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ctl05', 'aspnetForm', [], [],
 
 <div class="fixed-top navbar navbar-light bg-white navbar-static-top navbar-expand-xl border-bottom box-shadow">
     <div class="container">
-        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"><img src="images/default-source/default-album/icons/icon-menu941c.png?sfvrsn=aa3bbd50_2" alt="icon-menu" /></button>
+        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse" aria-expanded="false" aria-label="Toggle navigation"><img src="../default-album/icons/icon-menu941c.png?sfvrsn=aa3bbd50_2" alt="icon-menu" /></button>
         <a class="navbar-brand mr-auto" href="../index.php">
             <img src="../default-album/logo-scam-alert.png" alt="Scam Alert! Logo" title="Scam Alert! Logo" />&nbsp;
         </a>
         <div class="ml-auto d-block d-sm-none">
-            <a href="tel:1800-722-6688" class="mr-4" title="Hotline"><img src="../images/default-source/default-album/icons/icon-phone.png" alt="Hotline" /></a>
-            <a href="search.html" class="mr-4" title="Search"><img src="../images/default-source/default-album/icons/icon-magnifier.png" alt="Search" /></a>
+            <a href="tel:1800-722-6688" class="mr-4" title="Hotline"><img src="../default-album/icons/icon-phone.png" alt="Hotline" /></a>
+            <a href="../search.php" class="mr-4" title="Search"><img src="../default-album/icons/icon-magnifier.png" alt="Search" /></a>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
@@ -84,7 +84,7 @@ Sys.WebForms.PageRequestManager._initialize('ctl00$ctl05', 'aspnetForm', [], [],
                                     <p class="dropdown-header pl-0"> What is a Scam?</p>
                                     <p>A scam is designed to trick you into giving away your money, personal details or data by offering an attractive deal or false information.</p>
                                     <p>
-                                        <a href="types-of-scams.html">See Types of Scams</a>
+                                        <a href="../types-of-scams.php">See Types of Scams</a>
                                     </p>
                                 </li>
                                 <li class="col-sm-9 d-none d-sm-block">
